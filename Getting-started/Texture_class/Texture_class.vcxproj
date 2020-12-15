@@ -143,16 +143,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="stb_image.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="DrawTexture.cpp" />
+    <ClCompile Include="DrawTexture.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="glad.c" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="test.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.fs" />
     <None Include="shader.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

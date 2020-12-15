@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stb_image.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="DrawTexture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -37,5 +32,10 @@
     <None Include="shader.vs">
       <Filter>源文件</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
