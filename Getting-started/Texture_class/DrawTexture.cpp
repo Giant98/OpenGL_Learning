@@ -10,10 +10,17 @@
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+float lastX = 400;
+float lastY = 300;
+float yaw = 0, pitch = 0;
+float fov = 45.0f;
+bool firstMouse = true;
 
 float mixValue = 0.2f;
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -31,10 +38,6 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
     // glfw window creation
     // --------------------
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
@@ -46,7 +49,9 @@ int main()
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetCursorPosCallback(window, mouse_callback);//获取当前鼠标位置的回调函数
+    glfwSetScrollCallback(window, scroll_callback);
     // glad: load all OpenGL function pointers
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -225,7 +230,7 @@ int main()
         glm::mat4 view,projection;
         view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(fov), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         
         unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
         unsigned int proLoc = glGetUniformLocation(ourShader.ID, "projection");
@@ -281,7 +286,7 @@ void processInput(GLFWwindow* window)
         if (mixValue <= 0.0f)
             mixValue = 0.0f;
     }
-    float cameraSpeed = 2.5f * deltaTime;// adjust accordingly
+    float cameraSpeed = 5.5f * deltaTime;// adjust accordingly
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         cameraPos += cameraSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -292,6 +297,45 @@ void processInput(GLFWwindow* window)
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if (firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+    lastX = xpos;
+    lastY = ypos;
+
+    float sensitivity = 0.10f;//设置鼠标灵敏度
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    yaw += xoffset;
+    pitch += yoffset;
+    if (pitch > 89.0f)
+        pitch = 89.0f;
+    if (pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
+    front.y = sin(glm::radians(pitch));
+    front.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
+    cameraFront = glm::normalize(front);
+}
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
+    if (fov >= 1.0f && fov <= 45.0f)
+        fov -= yoffset;
+    if (fov <= 1.0f)
+        fov = 1.0f;
+    if (fov >= 45.0f)
+        fov = 45.0f;
+}
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
