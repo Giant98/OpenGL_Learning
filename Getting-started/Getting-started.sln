@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Getting-started", "Getting-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Texture", "Texture_class\Texture_class.vcxproj", "{C3D63590-B256-4C91-8841-F7A352A80580}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lighting", "Lighting\Lighting.vcxproj", "{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{C3D63590-B256-4C91-8841-F7A352A80580}.Release|x64.Build.0 = Release|x64
 		{C3D63590-B256-4C91-8841-F7A352A80580}.Release|x86.ActiveCfg = Release|Win32
 		{C3D63590-B256-4C91-8841-F7A352A80580}.Release|x86.Build.0 = Release|Win32
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Debug|x64.ActiveCfg = Debug|x64
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Debug|x64.Build.0 = Debug|x64
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Debug|x86.ActiveCfg = Debug|Win32
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Debug|x86.Build.0 = Debug|Win32
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Release|x64.ActiveCfg = Release|x64
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Release|x64.Build.0 = Release|x64
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Release|x86.ActiveCfg = Release|Win32
+		{68B80AF0-FA2C-4DB1-8A1D-F9F2C5F89893}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
