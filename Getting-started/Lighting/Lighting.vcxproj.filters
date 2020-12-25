@@ -37,16 +37,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="color.fs">
-      <Filter>源文件</Filter>
-    </None>
-    <None Include="color.vs">
-      <Filter>源文件</Filter>
-    </None>
     <None Include="light_cube.fs">
       <Filter>源文件</Filter>
     </None>
     <None Include="light_cube.vs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="lighting_maps.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="lighting_maps.vs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>

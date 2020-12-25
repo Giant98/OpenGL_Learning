@@ -152,8 +152,8 @@
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="color.fs" />
-    <None Include="color.vs" />
+    <None Include="lighting_maps.fs" />
+    <None Include="lighting_maps.vs" />
     <None Include="light_cube.fs" />
     <None Include="light_cube.vs" />
   </ItemGroup>
