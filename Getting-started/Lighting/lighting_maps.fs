@@ -1,24 +1,24 @@
 #version 330 core
 out vec4 FragColor;
 
-struct Material {
-    sampler2D diffuse;
-    sampler2D specular;
+struct Material {//光照贴图
+    sampler2D diffuse;//漫反射
+    sampler2D specular;//镜面反射
     float shininess;
 }; 
 
-struct DirLight {
+struct DirLight {//平行光
     vec3 direction;
 	
-    vec3 ambient;
+    vec3 ambient;//环境光
     vec3 diffuse;
     vec3 specular;
 };
 
-struct PointLight {
+struct PointLight {//点光源
     vec3 position;
     
-    float constant;
+    float constant;//计算衰减用的常数项、一次项、二次项
     float linear;
     float quadratic;
 	
@@ -27,13 +27,13 @@ struct PointLight {
     vec3 specular;
 };
 
-struct SpotLight {
+struct SpotLight {//聚光
     vec3 position;
     vec3 direction;
-    float cutOff;
-    float outerCutOff;
+    float cutOff;//切光角
+    float outerCutOff;//和外圆锥切角
   
-    float constant;
+    float constant;//计算衰减用的常数项、一次项、二次项
     float linear;
     float quadratic;
   
@@ -45,7 +45,7 @@ struct SpotLight {
 #define NR_POINT_LIGHTS 4
 
 in vec3 FragPos;
-in vec3 Normal;
+in vec3 Normal;//法线
 in vec2 TexCoords;
 
 uniform vec3 viewPos;
