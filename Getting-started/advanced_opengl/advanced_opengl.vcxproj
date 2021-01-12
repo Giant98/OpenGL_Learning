@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0a544fb9-b621-4340-a05e-f9d4e7255b7e}</ProjectGuid>
-    <RootNamespace>modelloading</RootNamespace>
+    <ProjectGuid>{e9e8e9ed-6406-484f-8520-51a89e518df0}</ProjectGuid>
+    <RootNamespace>advancedopengl</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -142,13 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="depth_testing.cpp" />
     <ClCompile Include="glad.c" />
-    <ClCompile Include="model_loading.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="model_loading.fs" />
-    <None Include="model_loading.vs" />
+    <None Include="1.1.depth_testing.fs" />
+    <None Include="1.1.depth_testing.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

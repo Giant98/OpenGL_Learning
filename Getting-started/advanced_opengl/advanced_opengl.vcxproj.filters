@@ -21,15 +21,15 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="model_loading.cpp">
+    <ClCompile Include="depth_testing.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="model_loading.fs">
+    <None Include="1.1.depth_testing.fs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="model_loading.vs">
+    <None Include="1.1.depth_testing.vs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>
