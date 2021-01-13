@@ -32,5 +32,8 @@
     <None Include="1.1.depth_testing.vs">
       <Filter>源文件</Filter>
     </None>
+    <None Include="stencil_single_color.fs">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
