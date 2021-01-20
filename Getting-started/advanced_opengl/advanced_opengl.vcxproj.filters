@@ -32,5 +32,11 @@
     <None Include="1.1.depth_testing.vs">
       <Filter>源文件</Filter>
     </None>
+    <None Include="5.1.framebuffers_screen.vs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="5.1.framebuffers_screen.fs">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
