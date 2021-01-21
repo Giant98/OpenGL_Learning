@@ -32,10 +32,10 @@
     <None Include="1.1.depth_testing.vs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="5.1.framebuffers_screen.vs">
+    <None Include="6.1.skybox.vs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="5.1.framebuffers_screen.fs">
+    <None Include="6.1.skybox.fs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>
