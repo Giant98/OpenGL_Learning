@@ -5,7 +5,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <learnopengl/shader.h>
+
+#include <learnopengl/shader_m.h>
 #include <learnopengl/camera.h>
 #include <learnopengl/model.h>
 
@@ -40,10 +41,6 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
 
     // glfw window creation
     // --------------------
@@ -205,7 +202,6 @@ int main()
         "back.jpg"
     };
     unsigned int cubemapTexture = loadCubemap(faces);
-    
     // shader configuration
     // --------------------
     shader.use();
@@ -382,12 +378,10 @@ unsigned int loadCubemap(vector<const char*> faces)
     unsigned int textureID;
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
-
     int width, height, nrChannels;
-    unsigned char* data;
     for (unsigned int i = 0; i < faces.size(); i++)
     {
-        data = stbi_load(faces[i] , &width, &height, &nrChannels, 0);
+         unsigned char* data = stbi_load(faces[i] , &width, &height, &nrChannels, 0);
         if (data) {
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
             stbi_image_free(data);
