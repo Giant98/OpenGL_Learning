@@ -76,8 +76,8 @@ int main()
 
 	// build and compile shaders
 	// -------------------------
-	Shader shader("geometry_shader.vs", "geometry_shader.fs", "geometry_shader.gs");
-
+	Shader shader("geometry_shader.vs", "geometry_shader.fs");
+	Shader normalDisplayShader("normal_shader.vs", "normal_shader.fs", "normal_shader.gs");
 	// load models
 	// -----------
 	Model nanosuit("nanosuit/nanosuit.obj");
@@ -110,12 +110,16 @@ int main()
 		shader.setMat4("view", view);
 		shader.setMat4("model", model);
 
-		// add time component to geometry shader in the form of a uniform
-		shader.setFloat("time", glfwGetTime());
-
 		// draw model
 		nanosuit.Draw(shader);
 
+		normalDisplayShader.use();
+		normalDisplayShader.setMat4("projection", projection);
+		normalDisplayShader.setMat4("view", view);
+		normalDisplayShader.setMat4("model", model);
+
+		// draw model
+		nanosuit.Draw(normalDisplayShader);
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(window);

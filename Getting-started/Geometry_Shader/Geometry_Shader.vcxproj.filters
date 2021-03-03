@@ -32,7 +32,13 @@
     <None Include="geometry_shader.fs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="geometry_shader.gs">
+    <None Include="normal_shader.gs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="normal_shader.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="normal_shader.vs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>

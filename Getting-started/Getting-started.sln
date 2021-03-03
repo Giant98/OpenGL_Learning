@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1340
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Getting-started", "Getting-started\Getting-started.vcxproj", "{63E20D39-E7EB-4862-B80A-30A870483300}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Advanced_glsl", "Advanced_glsl\Advanced_glsl.vcxproj", "{671F99C5-5BA1-43F5-AFC6-4559DDAEBDA4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry_Shader", "Geometry_Shader\Geometry_Shader.vcxproj", "{141719EF-3528-47C9-9E2B-5EAECA63263C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Instantitiate", "Instantitiate\Instantitiate.vcxproj", "{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,14 @@ Global
 		{141719EF-3528-47C9-9E2B-5EAECA63263C}.Release|x64.Build.0 = Release|x64
 		{141719EF-3528-47C9-9E2B-5EAECA63263C}.Release|x86.ActiveCfg = Release|Win32
 		{141719EF-3528-47C9-9E2B-5EAECA63263C}.Release|x86.Build.0 = Release|Win32
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Debug|x64.ActiveCfg = Debug|x64
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Debug|x64.Build.0 = Debug|x64
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Debug|x86.ActiveCfg = Debug|Win32
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Debug|x86.Build.0 = Debug|Win32
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x64.ActiveCfg = Release|x64
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x64.Build.0 = Release|x64
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x86.ActiveCfg = Release|Win32
+		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

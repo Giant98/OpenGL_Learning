@@ -138,8 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="geometry_shader.fs" />
-    <None Include="geometry_shader.gs" />
+    <None Include="normal_shader.fs" />
+    <None Include="normal_shader.gs" />
     <None Include="geometry_shader.vs" />
+    <None Include="normal_shader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
