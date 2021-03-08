@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry_Shader", "Geometry
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Instantitiate", "Instantitiate\Instantitiate.vcxproj", "{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Blinn_Phong", "Blinn_Phong\Blinn_Phong.vcxproj", "{6C29176E-B33B-4E80-BFB7-126FD66DCD10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x64.Build.0 = Release|x64
 		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x86.ActiveCfg = Release|Win32
 		{5F71690E-80D6-4DB7-8CA5-BCFCADB9AC62}.Release|x86.Build.0 = Release|Win32
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Debug|x64.ActiveCfg = Debug|x64
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Debug|x64.Build.0 = Debug|x64
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Debug|x86.ActiveCfg = Debug|Win32
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Debug|x86.Build.0 = Debug|Win32
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Release|x64.ActiveCfg = Release|x64
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Release|x64.Build.0 = Release|x64
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Release|x86.ActiveCfg = Release|Win32
+		{6C29176E-B33B-4E80-BFB7-126FD66DCD10}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
