@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\ASUS\Desktop\OpenGL\Libraries\Includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ASUS\Desktop\OpenGL\Libraries\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\93552\Desktop\OpenGL\Libraries\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\93552\Desktop\OpenGL\Libraries\Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
