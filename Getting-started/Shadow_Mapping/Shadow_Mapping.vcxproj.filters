@@ -38,5 +38,11 @@
     <None Include="3.1.1.shadow_mapping_depth.vs">
       <Filter>源文件</Filter>
     </None>
+    <None Include="3.1.2.shadow_mapping.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="3.1.2.shadow_mapping.vs">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
