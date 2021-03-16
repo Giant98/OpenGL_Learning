@@ -147,12 +147,11 @@
     <ClCompile Include="Shadow_Mapping.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="3.1.1.debug_quad.vs" />
-    <None Include="3.1.1.debug_quad_depth.fs" />
-    <None Include="3.1.1.shadow_mapping_depth.fs" />
-    <None Include="3.1.1.shadow_mapping_depth.vs" />
-    <None Include="3.1.2.shadow_mapping.fs" />
-    <None Include="3.1.2.shadow_mapping.vs" />
+    <None Include="3.2.1.point_shadows.fs" />
+    <None Include="3.2.1.point_shadows.vs" />
+    <None Include="3.2.1.point_shadows_depth.fs" />
+    <None Include="3.2.1.point_shadows_depth.gs" />
+    <None Include="3.2.1.point_shadows_depth.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,22 +26,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="3.1.1.debug_quad.vs">
+    <None Include="3.2.1.point_shadows.fs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="3.1.1.debug_quad_depth.fs">
+    <None Include="3.2.1.point_shadows.vs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="3.1.1.shadow_mapping_depth.fs">
+    <None Include="3.2.1.point_shadows_depth.fs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="3.1.1.shadow_mapping_depth.vs">
+    <None Include="3.2.1.point_shadows_depth.gs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="3.1.2.shadow_mapping.fs">
-      <Filter>源文件</Filter>
-    </None>
-    <None Include="3.1.2.shadow_mapping.vs">
+    <None Include="3.2.1.point_shadows_depth.vs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>
