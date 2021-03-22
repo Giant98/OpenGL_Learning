@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gamma", "Gamma\Gamma.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shadow_Mapping", "Shadow_Mapping\Shadow_Mapping.vcxproj", "{9CDA207D-185C-4B5D-84FD-DBE24A6CCF65}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Normal_Mapping", "Normal_Mapping\Normal_Mapping.vcxproj", "{2063B37E-6CE2-4C34-8798-284B13566057}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{9CDA207D-185C-4B5D-84FD-DBE24A6CCF65}.Release|x64.Build.0 = Release|x64
 		{9CDA207D-185C-4B5D-84FD-DBE24A6CCF65}.Release|x86.ActiveCfg = Release|Win32
 		{9CDA207D-185C-4B5D-84FD-DBE24A6CCF65}.Release|x86.Build.0 = Release|Win32
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Debug|x64.ActiveCfg = Debug|x64
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Debug|x64.Build.0 = Debug|x64
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Debug|x86.ActiveCfg = Debug|Win32
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Debug|x86.Build.0 = Debug|Win32
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Release|x64.ActiveCfg = Release|x64
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Release|x64.Build.0 = Release|x64
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Release|x86.ActiveCfg = Release|Win32
+		{2063B37E-6CE2-4C34-8798-284B13566057}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
