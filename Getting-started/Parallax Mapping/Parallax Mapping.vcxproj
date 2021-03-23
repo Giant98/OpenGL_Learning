@@ -146,6 +146,10 @@
     <ClCompile Include="Parallax Mapping.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="5.1.parallax_mapping.fs" />
+    <None Include="5.1.parallax_mapping.vs" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

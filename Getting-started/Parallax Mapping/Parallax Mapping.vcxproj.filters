@@ -25,4 +25,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="5.1.parallax_mapping.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="5.1.parallax_mapping.vs">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>
