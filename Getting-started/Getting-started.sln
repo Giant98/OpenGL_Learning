@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Normal_Mapping", "Normal_Ma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parallax Mapping", "Parallax Mapping\Parallax Mapping.vcxproj", "{18FC2081-18A9-4514-89BA-01AAAA372E0C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HDR", "HDR\HDR.vcxproj", "{D3378711-6D72-4948-9A1D-EC74C4B19E48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{18FC2081-18A9-4514-89BA-01AAAA372E0C}.Release|x64.Build.0 = Release|x64
 		{18FC2081-18A9-4514-89BA-01AAAA372E0C}.Release|x86.ActiveCfg = Release|Win32
 		{18FC2081-18A9-4514-89BA-01AAAA372E0C}.Release|x86.Build.0 = Release|Win32
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Debug|x64.ActiveCfg = Debug|x64
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Debug|x64.Build.0 = Debug|x64
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Debug|x86.ActiveCfg = Debug|Win32
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Debug|x86.Build.0 = Debug|Win32
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Release|x64.ActiveCfg = Release|x64
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Release|x64.Build.0 = Release|x64
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Release|x86.ActiveCfg = Release|Win32
+		{D3378711-6D72-4948-9A1D-EC74C4B19E48}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
