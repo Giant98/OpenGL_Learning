@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bloom", "Bloom\Bloom.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deferred Shading", "Deferred Shading\Deferred Shading.vcxproj", "{ABEF6E4F-7E38-478A-9AAE-35E46FF124CE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SSAO", "SSAO\SSAO.vcxproj", "{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{ABEF6E4F-7E38-478A-9AAE-35E46FF124CE}.Release|x64.Build.0 = Release|x64
 		{ABEF6E4F-7E38-478A-9AAE-35E46FF124CE}.Release|x86.ActiveCfg = Release|Win32
 		{ABEF6E4F-7E38-478A-9AAE-35E46FF124CE}.Release|x86.Build.0 = Release|Win32
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Debug|x64.ActiveCfg = Debug|x64
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Debug|x64.Build.0 = Debug|x64
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Debug|x86.ActiveCfg = Debug|Win32
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Debug|x86.Build.0 = Debug|Win32
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x64.ActiveCfg = Release|x64
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x64.Build.0 = Release|x64
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x86.ActiveCfg = Release|Win32
+		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
