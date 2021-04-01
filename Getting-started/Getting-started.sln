@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deferred Shading", "Deferre
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SSAO", "SSAO\SSAO.vcxproj", "{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2D Game", "2D Game\2D Game.vcxproj", "{9BBFADD7-684D-497A-B316-2BB780AAC877}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x64.Build.0 = Release|x64
 		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x86.ActiveCfg = Release|Win32
 		{39269D36-E5DD-4A7D-9CB5-DA44ECE891E4}.Release|x86.Build.0 = Release|Win32
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Debug|x64.ActiveCfg = Debug|x64
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Debug|x64.Build.0 = Debug|x64
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Debug|x86.ActiveCfg = Debug|Win32
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Debug|x86.Build.0 = Debug|Win32
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Release|x64.ActiveCfg = Release|x64
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Release|x64.Build.0 = Release|x64
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Release|x86.ActiveCfg = Release|Win32
+		{9BBFADD7-684D-497A-B316-2BB780AAC877}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
