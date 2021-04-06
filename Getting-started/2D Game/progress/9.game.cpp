@@ -7,10 +7,6 @@
 ** option) any later version.
 ******************************************************************/
 #include <algorithm>
-#include <sstream>
-#include <iostream>
-
-#include <learnopengl/filesystem.h>
 
 #include <irrklang/irrKlang.h>
 using namespace irrklang;
@@ -22,8 +18,6 @@ using namespace irrklang;
 #include "ball_object.h"
 #include "particle_generator.h"
 #include "post_processor.h"
-#include "text_renderer.h"
-
 
 // Game-related State data
 SpriteRenderer    *Renderer;
@@ -32,13 +26,11 @@ BallObject        *Ball;
 ParticleGenerator *Particles;
 PostProcessor     *Effects;
 ISoundEngine      *SoundEngine = createIrrKlangDevice();
-TextRenderer      *Text;
 
 float ShakeTime = 0.0f;
 
-
 Game::Game(unsigned int width, unsigned int height) 
-    : State(GAME_MENU), Keys(), KeysProcessed(), Width(width), Height(height), Level(0), Lives(3)
+    : State(GAME_ACTIVE), Keys(), Width(width), Height(height)
 { 
 
 }
@@ -50,46 +42,44 @@ Game::~Game()
     delete Ball;
     delete Particles;
     delete Effects;
-    delete Text;
     SoundEngine->drop();
 }
 
 void Game::Init()
 {
     // load shaders
-    ResourceManager::LoadShader("sprite.vs", "sprite.fs", nullptr, "sprite");
-    ResourceManager::LoadShader("particle.vs", "particle.fs", nullptr, "particle");
-    ResourceManager::LoadShader("post_processing.vs", "post_processing.fs", nullptr, "postprocessing");
+    ResourceManager::LoadShader("shaders/sprite.vs", "shaders/sprite.frag", nullptr, "sprite");
+    ResourceManager::LoadShader("shaders/particle.vs", "shaders/particle.frag", nullptr, "particle");
+    ResourceManager::LoadShader("shaders/post_processing.vs", "shaders/post_processing.frag", nullptr, "postprocessing");
     // configure shaders
-    glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width), static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
-    ResourceManager::GetShader("sprite").Use().SetInteger("sprite", 0);
+    glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width), 
+        static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
+    ResourceManager::GetShader("sprite").Use().SetInteger("image", 0);
     ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
     ResourceManager::GetShader("particle").Use().SetInteger("sprite", 0);
-    ResourceManager::GetShader("particle").SetMatrix4("projection", projection);
+    ResourceManager::GetShader("particle").SetMatrix4("projection", projection);    
     // load textures
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/background.jpg").c_str(), false, "background");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/awesomeface.png").c_str(), true, "face");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/block.png").c_str(), false, "block");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/block_solid.png").c_str(), false, "block_solid");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/paddle.png").c_str(), true, "paddle");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/particle.png").c_str(), true, "particle");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_speed.png").c_str(), true, "powerup_speed");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_sticky.png").c_str(), true, "powerup_sticky");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_increase.png").c_str(), true, "powerup_increase");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_confuse.png").c_str(), true, "powerup_confuse");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_chaos.png").c_str(), true, "powerup_chaos");
-    ResourceManager::LoadTexture(FileSystem::getPath("resources/textures/powerup_passthrough.png").c_str(), true, "powerup_passthrough");
+    ResourceManager::LoadTexture("textures/background.jpg", false, "background");
+    ResourceManager::LoadTexture("textures/awesomeface.png", true, "face");
+    ResourceManager::LoadTexture("textures/block.png", false, "block");
+    ResourceManager::LoadTexture("textures/block_solid.png", false, "block_solid");
+    ResourceManager::LoadTexture("textures/paddle.png", true, "paddle");
+    ResourceManager::LoadTexture("textures/particle.png", true, "particle");
+    ResourceManager::LoadTexture("textures/powerup_speed.png", true, "powerup_speed");
+    ResourceManager::LoadTexture("textures/powerup_sticky.png", true, "powerup_sticky");
+    ResourceManager::LoadTexture("textures/powerup_increase.png", true, "powerup_increase");
+    ResourceManager::LoadTexture("textures/powerup_confuse.png", true, "powerup_confuse");
+    ResourceManager::LoadTexture("textures/powerup_chaos.png", true, "powerup_chaos");
+    ResourceManager::LoadTexture("textures/powerup_passthrough.png", true, "powerup_passthrough");
     // set render-specific controls
     Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
     Particles = new ParticleGenerator(ResourceManager::GetShader("particle"), ResourceManager::GetTexture("particle"), 500);
     Effects = new PostProcessor(ResourceManager::GetShader("postprocessing"), this->Width, this->Height);
-    Text = new TextRenderer(this->Width, this->Height);
-    Text->Load(FileSystem::getPath("resources/fonts/OCRAEXT.TTF").c_str(), 24);
     // load levels
-    GameLevel one; one.Load(FileSystem::getPath("resources/levels/one.lvl").c_str(), this->Width, this->Height / 2);
-    GameLevel two; two.Load(FileSystem::getPath("resources/levels/two.lvl").c_str(), this->Width, this->Height /2 );
-    GameLevel three; three.Load(FileSystem::getPath("resources/levels/three.lvl").c_str(), this->Width, this->Height / 2);
-    GameLevel four; four.Load(FileSystem::getPath("resources/levels/four.lvl").c_str(), this->Width, this->Height / 2);
+    GameLevel one; one.Load("levels/one.lvl", this->Width, this->Height / 2);
+    GameLevel two; two.Load("levels/two.lvl", this->Width, this->Height / 2);
+    GameLevel three; three.Load("levels/three.lvl", this->Width, this->Height / 2);
+    GameLevel four; four.Load("levels/four.lvl", this->Width, this->Height / 2);
     this->Levels.push_back(one);
     this->Levels.push_back(two);
     this->Levels.push_back(three);
@@ -101,14 +91,14 @@ void Game::Init()
     glm::vec2 ballPos = playerPos + glm::vec2(PLAYER_SIZE.x / 2.0f - BALL_RADIUS, -BALL_RADIUS * 2.0f);
     Ball = new BallObject(ballPos, BALL_RADIUS, INITIAL_BALL_VELOCITY, ResourceManager::GetTexture("face"));
     // audio
-    SoundEngine->play2D(FileSystem::getPath("resources/audio/breakout.mp3").c_str(), true);
+    SoundEngine->play2D("audio/breakout.mp3", true);
 }
 
 void Game::Update(float dt)
 {
     // update objects
     Ball->Move(dt, this->Width);
-    // check for collisions
+     // check for collisions
     this->DoCollisions();
     // update particles
     Particles->Update(dt, *Ball, 2, glm::vec2(Ball->Radius / 2.0f));
@@ -124,59 +114,13 @@ void Game::Update(float dt)
     // check loss condition
     if (Ball->Position.y >= this->Height) // did ball reach bottom edge?
     {
-        --this->Lives;
-        // did the player lose all his lives? : game over
-        if (this->Lives == 0)
-        {
-            this->ResetLevel();
-            this->State = GAME_MENU;
-        }
-        this->ResetPlayer();
-    }
-    // check win condition
-    if (this->State == GAME_ACTIVE && this->Levels[this->Level].IsCompleted())
-    {
         this->ResetLevel();
         this->ResetPlayer();
-        Effects->Chaos = true;
-        this->State = GAME_WIN;
     }
 }
 
-
 void Game::ProcessInput(float dt)
 {
-    if (this->State == GAME_MENU)
-    {
-        if (this->Keys[GLFW_KEY_ENTER] && !this->KeysProcessed[GLFW_KEY_ENTER])
-        {
-            this->State = GAME_ACTIVE;
-            this->KeysProcessed[GLFW_KEY_ENTER] = true;
-        }
-        if (this->Keys[GLFW_KEY_W] && !this->KeysProcessed[GLFW_KEY_W])
-        {
-            this->Level = (this->Level + 1) % 4;
-            this->KeysProcessed[GLFW_KEY_W] = true;
-        }
-        if (this->Keys[GLFW_KEY_S] && !this->KeysProcessed[GLFW_KEY_S])
-        {
-            if (this->Level > 0)
-                --this->Level;
-            else
-                this->Level = 3;
-            //this->Level = (this->Level - 1) % 4;
-            this->KeysProcessed[GLFW_KEY_S] = true;
-        }
-    }
-    if (this->State == GAME_WIN)
-    {
-        if (this->Keys[GLFW_KEY_ENTER])
-        {
-            this->KeysProcessed[GLFW_KEY_ENTER] = true;
-            Effects->Chaos = false;
-            this->State = GAME_MENU;
-        }
-    }
     if (this->State == GAME_ACTIVE)
     {
         float velocity = PLAYER_VELOCITY * dt;
@@ -206,7 +150,7 @@ void Game::ProcessInput(float dt)
 
 void Game::Render()
 {
-    if (this->State == GAME_ACTIVE || this->State == GAME_MENU || this->State == GAME_WIN)
+    if(this->State == GAME_ACTIVE)
     {
         // begin rendering to postprocessing framebuffer
         Effects->BeginRender();
@@ -219,7 +163,7 @@ void Game::Render()
             // draw PowerUps
             for (PowerUp &powerUp : this->PowerUps)
                 if (!powerUp.Destroyed)
-                    powerUp.Draw(*Renderer);
+                    powerUp.Draw(*Renderer);            
             // draw particles	
             Particles->Draw();
             // draw ball
@@ -228,19 +172,6 @@ void Game::Render()
         Effects->EndRender();
         // render postprocessing quad
         Effects->Render(glfwGetTime());
-        // render text (don't include in postprocessing)
-        std::stringstream ss; ss << this->Lives;
-        Text->RenderText("Lives:" + ss.str(), 5.0f, 5.0f, 1.0f);
-    }
-    if (this->State == GAME_MENU)
-    {
-        Text->RenderText("Press ENTER to start", 250.0f, this->Height / 2.0f, 1.0f);
-        Text->RenderText("Press W or S to select level", 245.0f, this->Height / 2.0f + 20.0f, 0.75f);
-    }
-    if (this->State == GAME_WIN)
-    {
-        Text->RenderText("You WON!!!", 320.0f, this->Height / 2.0f - 20.0f, 1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-        Text->RenderText("Press ENTER to retry or ESC to quit", 130.0f, this->Height / 2.0f, 1.0f, glm::vec3(1.0f, 1.0f, 0.0f));
     }
 }
 
@@ -255,8 +186,6 @@ void Game::ResetLevel()
         this->Levels[2].Load("levels/three.lvl", this->Width, this->Height / 2);
     else if (this->Level == 3)
         this->Levels[3].Load("levels/four.lvl", this->Width, this->Height / 2);
-
-    this->Lives = 3;
 }
 
 void Game::ResetPlayer()
@@ -271,7 +200,6 @@ void Game::ResetPlayer()
     Player->Color = glm::vec3(1.0f);
     Ball->Color = glm::vec3(1.0f);
 }
-
 
 // powerups
 bool IsOtherPowerUpActive(std::vector<PowerUp> &powerUps, std::string type);
@@ -396,7 +324,6 @@ bool IsOtherPowerUpActive(std::vector<PowerUp> &powerUps, std::string type)
     return false;
 }
 
-
 // collision detection
 bool CheckCollision(GameObject &one, GameObject &two);
 Collision CheckCollision(BallObject &one, GameObject &two);
@@ -416,13 +343,13 @@ void Game::DoCollisions()
                 {
                     box.Destroyed = true;
                     this->SpawnPowerUps(box);
-                    SoundEngine->play2D(FileSystem::getPath("resources/audio/bleep.mp3").c_str(), false);
+                    SoundEngine->play2D("audio/bleep.mp3", false);
                 }
                 else
                 {   // if block is solid, enable shake effect
                     ShakeTime = 0.05f;
                     Effects->Shake = true;
-                    SoundEngine->play2D(FileSystem::getPath("resources/audio/bleep.mp3").c_str(), false);
+                    SoundEngine->play2D("audio/solid.wav", false);
                 }
                 // collision resolution
                 Direction dir = std::get<1>(collision);
@@ -453,7 +380,7 @@ void Game::DoCollisions()
             }
         }    
     }
-
+    
     // also check collisions on PowerUps and if so, activate them
     for (PowerUp &powerUp : this->PowerUps)
     {
@@ -468,11 +395,11 @@ void Game::DoCollisions()
                 ActivatePowerUp(powerUp);
                 powerUp.Destroyed = true;
                 powerUp.Activated = true;
-                SoundEngine->play2D(FileSystem::getPath("resources/audio/powerup.wav").c_str(), false);
+                SoundEngine->play2D("audio/powerup.wav", false);
             }
         }
     }
-
+    
     // and finally check collisions for player pad (unless stuck)
     Collision result = CheckCollision(*Ball, *Player);
     if (!Ball->Stuck && std::get<0>(result))
@@ -489,11 +416,11 @@ void Game::DoCollisions()
         Ball->Velocity = glm::normalize(Ball->Velocity) * glm::length(oldVelocity); // keep speed consistent over both axes (multiply by length of old velocity, so total strength is not changed)
         // fix sticky paddle
         Ball->Velocity.y = -1.0f * abs(Ball->Velocity.y);
-
+        
         // if Sticky powerup is activated, also stick ball to paddle once new velocity vectors were calculated
         Ball->Stuck = Ball->Sticky;
-
-        SoundEngine->play2D(FileSystem::getPath("resources/audio/bleep.wav").c_str(), false);
+        
+        SoundEngine->play2D("audio/bleep.wav", false);
     }
 }
 
@@ -523,7 +450,7 @@ Collision CheckCollision(BallObject &one, GameObject &two) // AABB - Circle coll
     glm::vec2 closest = aabb_center + clamped;
     // now retrieve vector between center circle and closest point AABB and check if length < radius
     difference = closest - center;
-    
+
     if (glm::length(difference) < one.Radius) // not <= since in that case a collision also occurs when object one exactly touches object two, which they are at the end of each collision resolution stage.
         return std::make_tuple(true, VectorDirection(difference), difference);
     else

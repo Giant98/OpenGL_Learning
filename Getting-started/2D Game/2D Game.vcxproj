@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\ASUS\Desktop\OpenGL\Libraries\Includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ASUS\Desktop\OpenGL\Libraries\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\1.桌面\OpenGL\Libraries\Includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\1.桌面\OpenGL\Libraries\Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -142,19 +142,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ball_object.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="game_level.h" />
+    <ClInclude Include="game_object.h" />
+    <ClInclude Include="particle_generator.h" />
+    <ClInclude Include="post_processor.h" />
+    <ClInclude Include="power_up.h" />
     <ClInclude Include="resource_manager.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="sprite_renderer.h" />
     <ClInclude Include="texture.h" />
+    <ClInclude Include="text_renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ball_object.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="game_level.cpp" />
+    <ClCompile Include="game_object.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="particle_generator.cpp" />
+    <ClCompile Include="post_processor.cpp" />
     <ClCompile Include="program.cpp" />
     <ClCompile Include="resource_manager.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="sprite_renderer.cpp" />
+    <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="text_renderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="particle.fs" />
+    <None Include="particle.vs" />
+    <None Include="post_processing.fs" />
+    <None Include="post_processing.vs" />
+    <None Include="sprite.fs" />
+    <None Include="sprite.vs" />
+    <None Include="text_2d.fs" />
+    <None Include="text_2d.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

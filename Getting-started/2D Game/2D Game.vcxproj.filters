@@ -27,6 +27,30 @@
     <ClInclude Include="resource_manager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ball_object.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_level.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_generator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="post_processor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="power_up.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_renderer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="text_renderer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -50,5 +74,55 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ball_object.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_level.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_generator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="post_processor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite_renderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="text_renderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="particle.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="post_processing.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="sprite.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="text_2d.fs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="particle.vs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="post_processing.vs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="sprite.vs">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="text_2d.vs">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
