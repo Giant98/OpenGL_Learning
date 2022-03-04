@@ -180,6 +180,12 @@ int main()
     lightingShader.setInt("material.diffuse", 0);
     lightingShader.setInt("material.specular", 1);
 
+    // bind diffuse map
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, diffuseMap);
+    // bind specular map
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, specularMap);
 
     // render loop
     // -----------
@@ -270,12 +276,7 @@ int main()
         glm::mat4 model = glm::mat4(1.0f);
         lightingShader.setMat4("model", model);
 
-        // bind diffuse map
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, diffuseMap);
-        // bind specular map
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, specularMap);
+        
 
         // render containers
         glBindVertexArray(cubeVAO);

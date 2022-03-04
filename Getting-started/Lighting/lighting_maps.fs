@@ -7,7 +7,7 @@ struct Material {//光照贴图
     float shininess;
 }; 
 
-struct DirLight {//平行光
+struct DirLight {//平行光，不同光源对于ambient,diffuse,specular具有不同的强度
     vec3 direction;
 	
     vec3 ambient;//环境光
